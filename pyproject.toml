@@ -4,6 +4,11 @@ version = "0.2.0"
 description = "API key validation Middleware"
 authors = ["Benjamin Ramser <legionaerr@googlemail.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/iwpnd/fastapi-key-auth"
+repository = "https://github.com/iwpnd/fastapi-key-auth"
+keywords = ["tile38", "async", "client"]
+
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -20,6 +25,7 @@ isort = "^5.8.0"
 pytest-cov = "^2.11.1"
 flake8 = "^3.9.0"
 fastapi = "^0.63.0"
+requests = "^2.25.1"
 
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
