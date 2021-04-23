@@ -1,4 +1,5 @@
 import os
+import re
 import typing
 
 from starlette.authentication import AuthenticationError
@@ -42,7 +43,8 @@ class AuthorizerMiddleware:
         self.on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
         ] = (on_error if on_error is not None else self.default_on_error)
-        self.public_paths = public_paths
+        self.public_paths = [path for path in public_paths if path.startswith("/")]
+        self.public_path_regex = [path for path in public_paths if path.startswith("^")]
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if scope["type"] not in ["http", "websocket"]:
@@ -50,6 +52,10 @@ class AuthorizerMiddleware:
             return
 
         if scope["path"] in self.public_paths:
+            await self.app(scope, receive, send)
+            return
+
+        if any([re.match(path, scope["path"]) for path in self.public_path_regex]):
             await self.app(scope, receive, send)
             return
 

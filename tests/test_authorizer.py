@@ -6,7 +6,9 @@ from fastapi_key_auth.authorizer import AuthorizerMiddleware
 app = FastAPI()
 router = APIRouter()
 
-app.add_middleware(AuthorizerMiddleware, public_paths=["/health", "/docs", "/router"])
+app.add_middleware(
+    AuthorizerMiddleware, public_paths=["/health", "/docs", "/router", "^/regex"]
+)
 
 
 @router.get("/router")
@@ -20,6 +22,11 @@ app.include_router(router)
 @app.get("/ping")
 async def ping():
     return {"ping": "pong"}
+
+
+@app.get("/regex/test")
+async def regex():
+    return {"regex": True}
 
 
 @app.get("/health")
@@ -63,4 +70,9 @@ def test_docs_path():
 
 def test_router():
     response = client.get("/router")
+    assert response.status_code == 200
+
+
+def test_regex():
+    response = client.get("/regex/test")
     assert response.status_code == 200
