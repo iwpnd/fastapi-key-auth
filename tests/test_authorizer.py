@@ -1,10 +1,20 @@
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
 from fastapi.testclient import TestClient
 
 from fastapi_key_auth.authorizer import AuthorizerMiddleware
 
 app = FastAPI()
-app.add_middleware(AuthorizerMiddleware, public_paths=["/health"])
+router = APIRouter()
+
+app.add_middleware(AuthorizerMiddleware, public_paths=["/health", "/docs", "/router"])
+
+
+@router.get("/router")
+async def get_router():
+    return {"ok": True}
+
+
+app.include_router(router)
 
 
 @app.get("/ping")
@@ -44,3 +54,13 @@ def test_public_path():
 
     assert response.status_code == 200
     assert response.json() == {"ok": True}
+
+
+def test_docs_path():
+    response = client.get("/docs")
+    assert response.status_code == 200
+
+
+def test_router():
+    response = client.get("/router")
+    assert response.status_code == 200

@@ -42,14 +42,14 @@ class AuthorizerMiddleware:
         self.on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
         ] = (on_error if on_error is not None else self.default_on_error)
-        self.public_path = public_paths
+        self.public_paths = public_paths
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if scope["type"] not in ["http", "websocket"]:
             await self.app(scope, receive, send)
             return
 
-        if scope["path"] in self.public_path:
+        if scope["path"] in self.public_paths:
             await self.app(scope, receive, send)
             return
 
