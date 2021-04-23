@@ -4,12 +4,17 @@ from fastapi.testclient import TestClient
 from fastapi_key_auth.authorizer import AuthorizerMiddleware
 
 app = FastAPI()
-app.add_middleware(AuthorizerMiddleware)
+app.add_middleware(AuthorizerMiddleware, public_paths=["/health"])
 
 
 @app.get("/ping")
-async def read_main():
+async def ping():
     return {"ping": "pong"}
+
+
+@app.get("/health")
+async def health():
+    return {"ok": True}
 
 
 client = TestClient(app)
@@ -32,3 +37,10 @@ def test_authorized():
 
     assert response.status_code == 200
     assert response.json() == {"ping": "pong"}
+
+
+def test_public_path():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {"ok": True}
