@@ -8,7 +8,7 @@ from starlette.responses import PlainTextResponse, Response
 from starlette.types import ASGIApp, Receive, Scope, Send
 
 
-def api_keys_in_env() -> typing.Sequence[str]:
+def api_keys_in_env() -> typing.List[typing.Optional[str]]:
     api_keys = []
 
     for i in os.environ.keys():
@@ -18,7 +18,8 @@ def api_keys_in_env() -> typing.Sequence[str]:
     return api_keys
 
 
-def authenticate(conn: HTTPConnection) -> None:
+def authenticate(conn: HTTPConnection) -> bool:
+    auth_result = False
     if "x-api-key" not in conn.headers:
         raise AuthenticationError("no api key")
 
@@ -27,14 +28,15 @@ def authenticate(conn: HTTPConnection) -> None:
     if api_key and not any(api_key == key for key in api_keys_in_env()):
         raise AuthenticationError("invalid api key")
 
-    return
+    auth_result = True
+    return auth_result
 
 
 class AuthorizerMiddleware:
     def __init__(
         self,
         app: ASGIApp,
-        public_paths: typing.Optional[typing.List[str]] = [],
+        public_paths: typing.List[str] = [],
         on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
         ] = None,
@@ -43,8 +45,12 @@ class AuthorizerMiddleware:
         self.on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
         ] = (on_error if on_error is not None else self.default_on_error)
-        self.public_paths = [path for path in public_paths if path.startswith("/")]
-        self.public_path_regex = [path for path in public_paths if path.startswith("^")]
+        self.public_paths: typing.List[str] = [
+            path for path in public_paths if path.startswith("/")
+        ]
+        self.public_path_regex: typing.List[str] = [
+            path for path in public_paths if path.startswith("^")
+        ]
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if scope["type"] not in ["http", "websocket"]:
@@ -62,13 +68,13 @@ class AuthorizerMiddleware:
         conn = HTTPConnection(scope)
 
         try:
-            result = authenticate(conn)
+            auth_result = authenticate(conn)
         except AuthenticationError as e:
             response = self.on_error(conn, e)
             await response(scope, receive, send)
             return
 
-        if result is None:
+        if auth_result:
             await self.app(scope, receive, send)
 
     @staticmethod

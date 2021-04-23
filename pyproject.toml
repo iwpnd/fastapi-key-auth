@@ -27,6 +27,10 @@ flake8 = "^3.9.0"
 fastapi = "^0.63.0"
 requests = "^2.25.1"
 
+[mypy]
+python_version = 3.7
+ignore_missing_imports = true
+
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
