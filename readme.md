@@ -41,10 +41,12 @@ On deployment inject API keys authorized to use your service. Every call to a pr
 endpoint of your service has to include a `header['x-api-key']` attribute that is
 validated against the API keys in your environment.
 If it is present, a request is authorized. If it is not FastAPI return `401 Unauthorized`.
+Use this either as a middleware, or as Dependency.
 
 ### Built With
 
 -   [starlette](https://github.com/encode/starlette)
+-   [fastapi](https://github.com/tiangolo/fastapi)
 
 <!-- GETTING STARTED -->
 
@@ -68,16 +70,30 @@ If it is present, a request is authorized. If it is not FastAPI return `401 Unau
 
 ## Usage
 
+As Middleware:
+
 ```python
 from fastapi import FastAPI
 from fastapi_key_auth import AuthorizerMiddleware
 
 app = FastAPI()
 
-app.add_middleware(AuthorizerMiddleware, public_path=["/ping"])
+app.add_middleware(AuthorizerMiddleware, public_path=["/ping"], key_pattern="API_KEY_")
 
 # optional use regex startswith
 app.add_middleware(AuthorizerMiddleware, public_path=["/ping", "^/users"])
+```
+
+As Dependency
+
+```python
+from fastapi import FastAPI, Depends
+from fastapi_key_auth import AuthorizerDependency
+
+authorizer = AuthorizerDependency(key_pattern="API_KEY_")
+
+# either globally or in a router
+app = FastAPI(dependencies=[Depends(authorizer)])
 ```
 
 ## License
