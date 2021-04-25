@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from fastapi_key_auth.middleware import AuthorizerMiddleware
+from fastapi_key_auth import AuthorizerMiddleware
 
 app = FastAPI()
 

@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI
 from fastapi.testclient import TestClient
 
-from fastapi_key_auth.dependency import AuthorizerDependency
+from fastapi_key_auth import AuthorizerDependency
 
 authorizer = AuthorizerDependency(key_pattern="KEY_")
 app = FastAPI(dependencies=[Depends(authorizer)])
