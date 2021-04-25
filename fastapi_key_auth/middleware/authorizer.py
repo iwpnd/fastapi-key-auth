@@ -82,4 +82,4 @@ class AuthorizerMiddleware(Authenticator):
 
     @staticmethod
     def default_on_error(conn: HTTPConnection, e: Exception) -> Response:
-        return JSONResponse({"details": str(e)}, status_code=401)
+        return JSONResponse({"detail": str(e)}, status_code=401)

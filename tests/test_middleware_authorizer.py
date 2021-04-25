@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI
 from fastapi.testclient import TestClient
 
-from fastapi_key_auth.authorizer import AuthorizerMiddleware
+from fastapi_key_auth.middleware import AuthorizerMiddleware
 
 app = FastAPI()
 router = APIRouter()
@@ -40,13 +40,13 @@ client = TestClient(app)
 def test_unauthorized_no_api_key():
     response = client.get("/ping")
     assert response.status_code == 401
-    assert response.json() == {"details": "no api key"}
+    assert response.json() == {"detail": "no api key"}
 
 
 def test_unauthorized_invalid_api_key():
     response = client.get("/ping", headers={"x-api-key": "baguette"})
     assert response.status_code == 401
-    assert response.json() == {"details": "invalid api key"}
+    assert response.json() == {"detail": "invalid api key"}
 
 
 def test_authorized():

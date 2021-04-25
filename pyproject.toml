@@ -13,6 +13,7 @@ keywords = ["tile38", "async", "client"]
 [tool.poetry.dependencies]
 python = "^3.7"
 starlette = "0.13.6"
+fastapi = "^0.63.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
@@ -24,7 +25,6 @@ poethepoet = "^0.10.0"
 isort = "^5.8.0"
 pytest-cov = "^2.11.1"
 flake8 = "^3.9.0"
-fastapi = "^0.63.0"
 requests = "^2.25.1"
 
 [mypy]
