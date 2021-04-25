@@ -4,38 +4,40 @@ import typing
 
 from starlette.authentication import AuthenticationError
 from starlette.requests import HTTPConnection
-from starlette.responses import PlainTextResponse, Response
+from starlette.responses import JSONResponse, Response
 from starlette.types import ASGIApp, Receive, Scope, Send
 
 
-def api_keys_in_env() -> typing.List[typing.Optional[str]]:
-    api_keys = []
+class Authenticator:
+    key_pattern: typing.Optional[str] = None
 
-    for i in os.environ.keys():
-        if i.startswith("API_KEY_"):
-            api_keys.append(os.getenv(i))
+    def api_keys_in_env(self) -> typing.List[typing.Optional[str]]:
+        api_keys = []
 
-    return api_keys
+        for i in os.environ.keys():
+            if i.startswith(self.key_pattern if self.key_pattern else "API_KEY_"):
+                api_keys.append(os.getenv(i))
+
+        return api_keys
+
+    def authenticate(self, conn: HTTPConnection) -> bool:
+
+        if "x-api-key" not in conn.headers:
+            raise AuthenticationError("no api key")
+
+        api_key = conn.headers["x-api-key"]
+
+        if api_key and not any(api_key == key for key in self.api_keys_in_env()):
+            raise AuthenticationError("invalid api key")
+
+        return True
 
 
-def authenticate(conn: HTTPConnection) -> bool:
-    auth_result = False
-    if "x-api-key" not in conn.headers:
-        raise AuthenticationError("no api key")
-
-    api_key = conn.headers["x-api-key"]
-
-    if api_key and not any(api_key == key for key in api_keys_in_env()):
-        raise AuthenticationError("invalid api key")
-
-    auth_result = True
-    return auth_result
-
-
-class AuthorizerMiddleware:
+class AuthorizerMiddleware(Authenticator):
     def __init__(
         self,
         app: ASGIApp,
+        key_pattern: typing.Optional[str] = None,
         public_paths: typing.List[str] = [],
         on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
@@ -45,6 +47,7 @@ class AuthorizerMiddleware:
         self.on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
         ] = (on_error if on_error is not None else self.default_on_error)
+        self.key_pattern = key_pattern
         self.public_paths: typing.List[str] = [
             path for path in public_paths if path.startswith("/")
         ]
@@ -68,7 +71,7 @@ class AuthorizerMiddleware:
         conn = HTTPConnection(scope)
 
         try:
-            auth_result = authenticate(conn)
+            auth_result = self.authenticate(conn)
         except AuthenticationError as e:
             response = self.on_error(conn, e)
             await response(scope, receive, send)
@@ -79,4 +82,4 @@ class AuthorizerMiddleware:
 
     @staticmethod
     def default_on_error(conn: HTTPConnection, e: Exception) -> Response:
-        return PlainTextResponse(str(e), status_code=401)
+        return JSONResponse({"details": str(e)}, status_code=401)

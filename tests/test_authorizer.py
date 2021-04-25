@@ -21,7 +21,7 @@ app.include_router(router)
 
 @app.get("/ping")
 async def ping():
-    return {"ping": "pong"}
+    return {"ping": "pong!"}
 
 
 @app.get("/regex/test")
@@ -40,20 +40,20 @@ client = TestClient(app)
 def test_unauthorized_no_api_key():
     response = client.get("/ping")
     assert response.status_code == 401
-    assert response.text == "no api key"
+    assert response.json() == {"details": "no api key"}
 
 
 def test_unauthorized_invalid_api_key():
     response = client.get("/ping", headers={"x-api-key": "baguette"})
     assert response.status_code == 401
-    assert response.text == "invalid api key"
+    assert response.json() == {"details": "invalid api key"}
 
 
 def test_authorized():
     response = client.get("/ping", headers={"x-api-key": "test"})
 
     assert response.status_code == 200
-    assert response.json() == {"ping": "pong"}
+    assert response.json() == {"ping": "pong!"}
 
 
 def test_public_path():
