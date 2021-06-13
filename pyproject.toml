@@ -18,7 +18,6 @@ fastapi = ">=0.63,<0.65"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
 pre-commit = "^2.13.0"
-mypy = "^0.812"
 black = "^21.5b2"
 gitlint = "^0.15.0"
 poethepoet = "^0.10.0"
@@ -26,6 +25,7 @@ isort = "^5.8.0"
 pytest-cov = "^2.12.1"
 flake8 = "^3.9.2"
 requests = "^2.25.1"
+mypy = "^0.902"
 
 [mypy]
 python_version = 3.7
@@ -34,7 +34,7 @@ ignore_missing_imports = true
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
-mypy       = "poetry run mypy --config-file pyproject.toml"
+mypy       = "poetry run mypy --ignore-missing-imports --config-file pyproject.toml"
 lint       = "flake8 ."
 
 [build-system]
