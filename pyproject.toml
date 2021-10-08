@@ -35,7 +35,7 @@ ignore_missing_imports = true
 
 [tool.semantic_release]
 version_variable = [
-    "fastapi-key-auth/__init__.py:__version__",
+    "fastapi_key_auth/__init__.py:__version__",
     "pyproject.toml:version"
 ]
 commit_subject = "ci: release v{version}"
