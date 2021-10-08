@@ -4,7 +4,7 @@
 
 ## v0.7.0 (2021-10-08)
 ### Feature
-* **zone-bc-services:** Remove version constrains on starlette and fastapi ([`28a4f29`](https://github.com/iwpnd/fastapi-key-auth/commit/28a4f292a596bce8fc451ff4adeb56364a1f0a9e))
+* Remove version constrains on starlette and fastapi ([`28a4f29`](https://github.com/iwpnd/fastapi-key-auth/commit/28a4f292a596bce8fc451ff4adeb56364a1f0a9e))
 * Add dependency authorizer ✨ ([`7d5cbc4`](https://github.com/iwpnd/fastapi-key-auth/commit/7d5cbc49cf05ffd883843e4a999d0b2d91b9968f))
 * Add custom key pattern and json response instead of plaintext ([`63c5a27`](https://github.com/iwpnd/fastapi-key-auth/commit/63c5a276bbf6724005dc13b9ce4e4d2a32bca99a))
 * Allow regex ^ matches in public_paths ([`e5a7dc0`](https://github.com/iwpnd/fastapi-key-auth/commit/e5a7dc0295ebe57fccadccbb362c20554fb598b4))
