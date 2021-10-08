@@ -26,16 +26,30 @@ pytest-cov = "^3.0.0"
 flake8 = "^3.9.2"
 requests = "^2.26.0"
 mypy = "^0.910"
+python-semantic-release = "^7.19.2"
 
 [mypy]
 python_version = 3.7
 ignore_missing_imports = true
+
+
+[tool.semantic_release]
+version_variable = [
+    "fastapi-key-auth/__init__.py:__version__",
+    "pyproject.toml:version"
+]
+commit_subject = "ci: release v{version}"
+branch = "main"
+upload_to_pypi = true
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
 
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
 mypy       = "poetry run mypy --ignore-missing-imports --config-file pyproject.toml"
 lint       = "flake8 ."
+publish		 = "poetry run semantic-release publish"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
