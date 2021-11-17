@@ -18,7 +18,7 @@ fastapi = "^0.70.0"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
 pre-commit = "^2.15.0"
-black = "^21.10b0"
+black = "^21.11b0"
 gitlint = "^0.16.0"
 poethepoet = "^0.11.0"
 isort = "^5.10.1"
