@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.1 (2022-01-11)
+### Documentation
+* Update changelog ([`99ffa7b`](https://github.com/iwpnd/fastapi-key-auth/commit/99ffa7b9ccf8c4468a852b46f0991abcee0f4b6e))
+
 ## v0.7.0 (2021-10-08)
 ### Feature
 * Remove version constrains on starlette and fastapi ([`28a4f29`](https://github.com/iwpnd/fastapi-key-auth/commit/28a4f292a596bce8fc451ff4adeb56364a1f0a9e))
