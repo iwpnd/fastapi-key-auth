@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.3 (2022-04-28)
+### Fix
+* Fastapi dependency range ([`8c7d5df`](https://github.com/iwpnd/fastapi-key-auth/commit/8c7d5dfd97c86d34c9c6068b7b826b2fdabcbd3c))
+
 ## v0.7.2 (2022-04-28)
 ### Fix
 * Fastapi dependency ([`40929de`](https://github.com/iwpnd/fastapi-key-auth/commit/40929de336049d51bf1e06e4003e95aaaaa7a11c))
