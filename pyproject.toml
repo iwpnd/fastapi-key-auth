@@ -12,7 +12,7 @@ keywords = ["tile38", "async", "client"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-fastapi = ">=0.71,<0.76"
+fastapi = "^0.72.0"
 starlette = "^0.17.1"
 
 [tool.poetry.dev-dependencies]
