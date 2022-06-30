@@ -24,7 +24,7 @@ poethepoet = "^0.14.0"
 isort = "^5.10.1"
 pytest-cov = "^3.0.0"
 flake8 = "^4.0.1"
-requests = "^2.28.0"
+requests = "^2.28.1"
 mypy = "^0.961"
 python-semantic-release = "^7.29.4"
 
