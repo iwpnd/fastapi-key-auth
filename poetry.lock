@@ -220,7 +220,7 @@ setuptools_scm = "*"
 
 [[package]]
 name = "fastapi"
-version = "0.79.1"
+version = "0.80.0"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 category = "main"
 optional = false
@@ -1212,8 +1212,8 @@ dotty-dict = [
     {file = "dotty_dict-1.3.0.tar.gz", hash = "sha256:eb0035a3629ecd84397a68f1f42f1e94abd1c34577a19cd3eacad331ee7cbaf0"},
 ]
 fastapi = [
-    {file = "fastapi-0.79.1-py3-none-any.whl", hash = "sha256:3c584179c64e265749e88221c860520fc512ea37e253282dab378cc503dfd7fd"},
-    {file = "fastapi-0.79.1.tar.gz", hash = "sha256:006862dec0f0f5683ac21fb0864af2ff12a931e7ba18920f28cc8eceed51896b"},
+    {file = "fastapi-0.80.0-py3-none-any.whl", hash = "sha256:5340f6016860baf94a52be5040c3a2e94c39ddc7ab4cc7548558182db742d9d6"},
+    {file = "fastapi-0.80.0.tar.gz", hash = "sha256:4e542f71b5b0f4f54a82449e8bd0244305de319186a31addab976bf672206420"},
 ]
 filelock = [
     {file = "filelock-3.7.0-py3-none-any.whl", hash = "sha256:c7b5fdb219b398a5b28c8e4c1893ef5f98ece6a38c6ab2c22e26ec161556fed6"},
