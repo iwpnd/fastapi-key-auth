@@ -25,7 +25,7 @@ isort = "^5.10.1"
 pytest-cov = "^4.0.0"
 flake8 = "^5.0.4"
 requests = "^2.28.1"
-mypy = "^0.981"
+mypy = "^0.982"
 python-semantic-release = "^7.32.0"
 
 [mypy]
