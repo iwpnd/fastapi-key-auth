@@ -12,10 +12,11 @@ class Authenticator:
     key_pattern: typing.Optional[str] = None
 
     def api_keys_in_env(self) -> typing.List[typing.Optional[str]]:
+        key_pattern = self.key_pattern if self.key_pattern else "API_KEY_"
         api_keys = []
 
         for i in os.environ.keys():
-            if i.startswith(self.key_pattern if self.key_pattern else "API_KEY_"):
+            if i.startswith(key_pattern):
                 api_keys.append(os.getenv(i))
 
         return api_keys
