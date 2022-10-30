@@ -7,10 +7,11 @@ from fastapi import Header, HTTPException
 def api_keys_in_env(
     key_pattern: typing.Optional[str] = None,
 ) -> typing.List[typing.Optional[str]]:
+    key_pattern = key_pattern or "API_KEY_"
     api_keys = []
 
     for i in os.environ.keys():
-        if i.startswith(key_pattern if key_pattern else "API_KEY_"):
+        if i.startswith(key_pattern):
             api_keys.append(os.getenv(i))
 
     return api_keys
