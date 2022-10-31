@@ -3,11 +3,12 @@ import typing
 
 from fastapi import Header, HTTPException
 
+DEFAULT_API_KEY_PATTERN = "API_KEY_"
+
 
 def api_keys_in_env(
-    key_pattern: typing.Optional[str] = None,
+    key_pattern: str,
 ) -> typing.List[typing.Optional[str]]:
-    key_pattern = key_pattern or "API_KEY_"
     api_keys = []
 
     for i in os.environ.keys():
@@ -18,7 +19,7 @@ def api_keys_in_env(
 
 
 class AuthorizerDependency:
-    def __init__(self, key_pattern: typing.Optional[str] = None):
+    def __init__(self, key_pattern=DEFAULT_API_KEY_PATTERN):
         self.key_pattern = key_pattern
 
     def __call__(self, x_api_key: typing.Optional[str] = Header(...)):

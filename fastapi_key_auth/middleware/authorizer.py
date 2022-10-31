@@ -7,22 +7,22 @@ from starlette.requests import HTTPConnection
 from starlette.responses import JSONResponse, Response
 from starlette.types import ASGIApp, Receive, Scope, Send
 
+DEFAULT_API_KEY_PATTERN = "API_KEY_"
+
 
 class Authenticator:
-    key_pattern: typing.Optional[str] = None
+    key_pattern: str
 
     def api_keys_in_env(self) -> typing.List[typing.Optional[str]]:
-        key_pattern = self.key_pattern or "API_KEY_"
         api_keys = []
 
         for i in os.environ.keys():
-            if i.startswith(key_pattern):
+            if i.startswith(self.key_pattern):
                 api_keys.append(os.getenv(i))
 
         return api_keys
 
     def authenticate(self, conn: HTTPConnection) -> bool:
-
         if "x-api-key" not in conn.headers:
             raise AuthenticationError("no api key")
 
@@ -38,10 +38,10 @@ class AuthorizerMiddleware(Authenticator):
     def __init__(
         self,
         app: ASGIApp,
-        key_pattern: typing.Optional[str] = None,
+        key_pattern: str = DEFAULT_API_KEY_PATTERN,
         public_paths: typing.List[str] = [],
-        on_error: typing.Callable[
-            [HTTPConnection, AuthenticationError], Response
+        on_error: typing.Optional[
+            typing.Callable[[HTTPConnection, AuthenticationError], Response]
         ] = None,
     ) -> None:
         self.app = app
