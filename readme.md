@@ -78,10 +78,10 @@ from fastapi_key_auth import AuthorizerMiddleware
 
 app = FastAPI()
 
-app.add_middleware(AuthorizerMiddleware, public_path=["/ping"], key_pattern="API_KEY_")
+app.add_middleware(AuthorizerMiddleware, public_paths=["/ping"], key_pattern="API_KEY_")
 
 # optional use regex startswith
-app.add_middleware(AuthorizerMiddleware, public_path=["/ping", "^/users"])
+app.add_middleware(AuthorizerMiddleware, public_paths=["/ping", "^/users"])
 ```
 
 As Dependency
