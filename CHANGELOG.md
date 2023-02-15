@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2023-02-15)
+### Documentation
+* Fix typo ([`82ef892`](https://github.com/iwpnd/fastapi-key-auth/commit/82ef892c373a5844915c020b861a679c8fb3a7d3))
+
 ## v0.8.0 (2022-10-31)
 ### Feature
 * Default key pattern ([`72bf29b`](https://github.com/iwpnd/fastapi-key-auth/commit/72bf29bd93391eb81a538e8b7ea1d22782e274c4))
