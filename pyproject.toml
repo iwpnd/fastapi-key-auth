@@ -12,10 +12,11 @@ keywords = ["tile38", "async", "client"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-fastapi = ">=0.70.0,<0.87.0"
-starlette = "^0.19.0"
+fastapi = ">=0.84.0,<=0.92.0"
+starlette = "^0.25.0"
 
-[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
 pytest = "^7.2"
 pre-commit = "^2.21.0"
 black = "^23.1"
@@ -27,6 +28,7 @@ flake8 = "^5.0.4"
 requests = "^2.28.2"
 mypy = "^1.0"
 python-semantic-release = "^7.33.1"
+httpx = "^0.23.3"
 
 [mypy]
 python_version = 3.7
