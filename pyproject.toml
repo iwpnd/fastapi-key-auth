@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastapi-key-auth"
-version = "0.9.0"
+version = "0.10.0"
 description = "API key validation Middleware"
 authors = ["Benjamin Ramser <legionaerr@googlemail.com>"]
 license = "MIT"

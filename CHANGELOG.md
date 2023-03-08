@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.0 (2023-03-08)
+
+
 ## v0.9.0 (2023-02-15)
 ### Documentation
 * Fix typo ([`82ef892`](https://github.com/iwpnd/fastapi-key-auth/commit/82ef892c373a5844915c020b861a679c8fb3a7d3))
