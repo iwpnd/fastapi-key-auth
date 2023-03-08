@@ -29,6 +29,6 @@ repos:
       hooks:
       - id: black
     - repo: https://github.com/jorisroovers/gitlint
-      rev: v0.19.0dev # Fill in a tag / sha here
+      rev: v0.19.0 # Fill in a tag / sha here
       hooks:
       - id: gitlint
