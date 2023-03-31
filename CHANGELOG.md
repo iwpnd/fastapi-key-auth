@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.2 (2023-03-31)
+### Fix
+* Dependencies ([`14582ca`](https://github.com/iwpnd/fastapi-key-auth/commit/14582ca6c3e3369d415d4f78547af1f195e3fd30))
+
 ## v0.10.1 (2023-03-08)
 
 
