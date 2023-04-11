@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.11.0 (2023-04-11)
+### Feature
+* Drop support for python 3.7 ([`2dc24ea`](https://github.com/iwpnd/fastapi-key-auth/commit/2dc24ea7742ad48a66d9e776b0958345cfff8cc1))
+
 ## v0.10.2 (2023-03-31)
 ### Fix
 * Dependencies ([`14582ca`](https://github.com/iwpnd/fastapi-key-auth/commit/14582ca6c3e3369d415d4f78547af1f195e3fd30))
