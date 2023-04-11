@@ -11,7 +11,7 @@ keywords = ["tile38", "async", "client"]
 
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 fastapi = ">=0.84.0"
 starlette = ">=0.25.0"
 
@@ -24,16 +24,58 @@ gitlint = "^0.19.0"
 poethepoet = ">=0.18.1,<0.20.0"
 isort = "^5.11.5"
 pytest-cov = "^4.0.0"
-flake8 = "^5.0.4"
 requests = "^2.28.2"
 mypy = "^1.1.1"
 python-semantic-release = "^7.33.1"
 httpx = "^0.23.3"
+ruff = "^0.0.261"
 
 [mypy]
-python_version = 3.7
+python_version = 3.8
 ignore_missing_imports = true
 
+[tool.ruff]
+line-length = 88
+
+# Enable Pyflakes `E` and `F` codes by default.
+select = ["E", "F"]
+ignore = ["E501"]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.8.
+target-version = "py38"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
 
 [tool.semantic_release]
 version_variable = [
@@ -50,7 +92,7 @@ build_command = "pip install poetry && poetry build"
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
 mypy       = "poetry run mypy --ignore-missing-imports --config-file pyproject.toml"
-lint       = "flake8 ."
+lint       = "ruff ."
 publish		 = "poetry run semantic-release publish"
 
 [build-system]
