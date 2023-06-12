@@ -23,7 +23,7 @@ class Authenticator:
         return api_keys
 
     def authenticate(self, conn: HTTPConnection) -> bool:
-        if "x-api-key" not in conn.headers:
+        if "x-api-key" not in conn.headers or not conn.headers["x-api-key"]:
             raise AuthenticationError("no api key")
 
         api_key = conn.headers["x-api-key"]
