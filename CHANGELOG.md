@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.0 (2023-06-13)
+
+### Fix
+
+* Empty api_key passing authentication ([`c30376e`](https://github.com/iwpnd/fastapi-key-auth/commit/c30376e68c605431c7d11e64dcacf6792baface8))
+
 ## v0.11.0 (2023-04-11)
 ### Feature
 * Drop support for python 3.7 ([`2dc24ea`](https://github.com/iwpnd/fastapi-key-auth/commit/2dc24ea7742ad48a66d9e776b0958345cfff8cc1))
