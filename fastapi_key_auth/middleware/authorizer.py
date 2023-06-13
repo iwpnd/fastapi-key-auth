@@ -28,10 +28,10 @@ class Authenticator:
 
         api_key = conn.headers["x-api-key"]
 
-        if api_key and not any(api_key == key for key in self.api_keys_in_env()):
-            raise AuthenticationError("invalid api key")
+        if any(api_key == key for key in self.api_keys_in_env()):
+            return True
 
-        return True
+        raise AuthenticationError("invalid api key")
 
 
 class AuthorizerMiddleware(Authenticator):

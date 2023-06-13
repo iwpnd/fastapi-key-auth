@@ -49,6 +49,12 @@ def test_unauthorized_invalid_api_key():
     assert response.json() == {"detail": "invalid api key"}
 
 
+def test_unauthorized_empty_api_key():
+    response = client.get("/ping", headers={"x-api-key": ""})
+    assert response.status_code == 401
+    assert response.json() == {"detail": "invalid api key"}
+
+
 def test_authorized():
     response = client.get("/ping", headers={"x-api-key": "test"})
 
