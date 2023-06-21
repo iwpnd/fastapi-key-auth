@@ -28,7 +28,7 @@ requests = "^2.28.2"
 mypy = "^1.1.1"
 python-semantic-release = "^7.33.1"
 httpx = ">=0.23.3,<0.25.0"
-ruff = ">=0.0.261,<0.0.273"
+ruff = ">=0.0.261,<0.0.275"
 
 [mypy]
 python_version = 3.8
