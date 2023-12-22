@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.13.0 (2023-06-13)
+
+### Feat
+
+-   feat: drop 3.8 support
+
 ## v0.12.0 (2023-06-13)
 
 ### Chore
