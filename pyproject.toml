@@ -14,6 +14,7 @@ keywords = ["tile38", "async", "client"]
 python = "^3.9"
 fastapi = ">=0.100.0"
 starlette = ">=0.25.0"
+python-semantic-release = "7.33.1"
 
 
 [tool.poetry.group.dev.dependencies]
