@@ -7,7 +7,7 @@ license = "MIT"
 readme = "readme.md"
 homepage = "https://github.com/iwpnd/fastapi-key-auth"
 repository = "https://github.com/iwpnd/fastapi-key-auth"
-keywords = ["tile38", "async", "client"]
+keywords = ["fastapi", "api key", "security"]
 
 
 [tool.poetry.dependencies]
