@@ -12,7 +12,7 @@ keywords = ["tile38", "async", "client"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = ">=0.95.0"
+fastapi = ">=0.100.0"
 starlette = ">=0.25.0"
 
 
@@ -31,7 +31,7 @@ httpx = ">=0.23.3,<0.26.0"
 ruff = ">=0.0.261,<0.1.10"
 
 [mypy]
-python_version = 3.8
+python_version = 3.9
 ignore_missing_imports = true
 
 [tool.ruff]
