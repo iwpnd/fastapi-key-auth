@@ -2,6 +2,13 @@
 
 
 
+## v0.15.1 (2024-01-09)
+
+### Fix
+
+* fix: python-semantic-release versioning ([`ec1756b`](https://github.com/iwpnd/fastapi-key-auth/commit/ec1756b2db930ce46ac1bdc96df21f337c68e0f4))
+
+
 ## v0.15.0 (2024-01-09)
 
 ### Feature
