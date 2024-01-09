@@ -89,6 +89,22 @@ upload_to_pypi = true
 upload_to_release = true
 build_command = "pip install poetry && poetry build"
 
+[tool.semantic_release.commit_parser_options]
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test",
+]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf"]
+
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
