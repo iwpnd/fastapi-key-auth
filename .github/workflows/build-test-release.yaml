@@ -106,6 +106,7 @@ jobs:
       url: https://pypi.org/p/fastapi-key-auth
     permissions:
       id-token: write
+      contents: write
     needs: [lint, mypy, test]
     steps:
       - uses: actions/checkout@v3
