@@ -14,7 +14,7 @@ keywords = ["fastapi", "api key", "security"]
 python = "^3.9"
 fastapi = ">=0.100.0"
 starlette = ">=0.25.0"
-python-semantic-release = "7.33.1"
+python-semantic-release = "^8.7.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -27,7 +27,6 @@ isort = "^5.11.5"
 pytest-cov = "^4.0.0"
 requests = "^2.28.2"
 mypy = "^1.1.1"
-python-semantic-release = ">=7.33.1,<9.0.0"
 httpx = ">=0.23.3,<0.26.0"
 ruff = ">=0.0.261,<0.1.10"
 
@@ -79,13 +78,12 @@ max-complexity = 10
 "__init__.py" = ["F401"]
 
 [tool.semantic_release]
-version_variable = [
+version_variables = [
     "fastapi_key_auth/__init__.py:__version__",
     "pyproject.toml:version"
 ]
 commit_subject = "ci: release v{version}"
 branch = "main"
-upload_to_pypi = true
 upload_to_release = true
 build_command = "pip install poetry && poetry build"
 
