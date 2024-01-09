@@ -2,6 +2,15 @@
 
 
 
+## v0.15.0 (2024-01-09)
+
+### Feature
+
+* feat: export helper utils
+
+and trigger python-semantic-release to pypi O_O ([`466b963`](https://github.com/iwpnd/fastapi-key-auth/commit/466b9632618542245120f8bb4ad1669fb2b2674a))
+
+
 ## v0.14.1 (2024-01-09)
 
 ### Chore
