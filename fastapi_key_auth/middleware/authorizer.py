@@ -1,4 +1,3 @@
-import os
 import re
 import typing
 
@@ -7,29 +6,20 @@ from starlette.requests import HTTPConnection
 from starlette.responses import JSONResponse, Response
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-DEFAULT_API_KEY_PATTERN = "API_KEY_"
+from ..utils import get_api_keys_in_env, get_default_api_key_pattern
 
 
 class Authenticator:
     key_pattern: str
-
-    def api_keys_in_env(self) -> typing.List[typing.Optional[str]]:
-        api_keys = []
-
-        for i in os.environ.keys():
-            if i.startswith(self.key_pattern):
-                api_keys.append(os.getenv(i))
-
-        return api_keys
 
     def authenticate(self, conn: HTTPConnection) -> bool:
         if "x-api-key" not in conn.headers:
             raise AuthenticationError("no api key")
 
         api_key = conn.headers["x-api-key"]
-
-        if any(api_key == key for key in self.api_keys_in_env()):
-            return True
+        for key in get_api_keys_in_env(self.key_pattern):
+            if api_key == key:
+                return True
 
         raise AuthenticationError("invalid api key")
 
@@ -38,7 +28,7 @@ class AuthorizerMiddleware(Authenticator):
     def __init__(
         self,
         app: ASGIApp,
-        key_pattern: str = DEFAULT_API_KEY_PATTERN,
+        key_pattern: str = get_default_api_key_pattern(),
         public_paths: typing.List[str] = [],
         on_error: typing.Optional[
             typing.Callable[[HTTPConnection, AuthenticationError], Response]
@@ -52,22 +42,26 @@ class AuthorizerMiddleware(Authenticator):
         self.public_paths: typing.List[str] = [
             path for path in public_paths if path.startswith("/")
         ]
-        self.public_path_regex: typing.List[str] = [
+        self.public_paths_regex: typing.List[str] = [
             path for path in public_paths if path.startswith("^")
         ]
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
-        if scope["type"] not in ["http", "websocket"]:
+        if scope.get("type") not in ["http", "websocket"]:
             await self.app(scope, receive, send)
             return
 
-        if scope["path"] in self.public_paths:
-            await self.app(scope, receive, send)
-            return
+        if len(self.public_paths) > 0:
+            for path in self.public_paths:
+                if re.match(path, scope["path"]):
+                    await self.app(scope, receive, send)
+                    return
 
-        if any([re.match(path, scope["path"]) for path in self.public_path_regex]):
-            await self.app(scope, receive, send)
-            return
+        if len(self.public_paths_regex) > 0:
+            for path in self.public_paths_regex:
+                if re.match(path, scope["path"]):
+                    await self.app(scope, receive, send)
+                    return
 
         conn = HTTPConnection(scope)
 
