@@ -14,7 +14,7 @@ keywords = ["fastapi", "api key", "security"]
 python = "^3.9"
 fastapi = ">=0.100.0"
 starlette = ">=0.25.0"
-python-semantic-release = "7.33.1"
+python-semantic-release = "8.7.0"
 
 
 [tool.poetry.group.dev.dependencies]
