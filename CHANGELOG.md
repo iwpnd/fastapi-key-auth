@@ -2,6 +2,117 @@
 
 
 
+## v0.15.2 (2024-02-06)
+
+### Chore
+
+* chore(deps-dev): update ([`db6ba19`](https://github.com/iwpnd/fastapi-key-auth/commit/db6ba194e63f7b162e303d1ea00208f13b80444f))
+
+* chore: ruff pyproject config ([`8d6305b`](https://github.com/iwpnd/fastapi-key-auth/commit/8d6305bd28655088eb60de9ae27dbf0b01e1141d))
+
+* chore(deps-dev): precommit autoupdate ([`5562a52`](https://github.com/iwpnd/fastapi-key-auth/commit/5562a52a49875503c37447ee38599219b12ddd77))
+
+* chore(deps-dev): update ([`f68baf4`](https://github.com/iwpnd/fastapi-key-auth/commit/f68baf4d0df8813d212c458f9809ed606e5f1418))
+
+* chore(deps-dev): pre-commit autoupdate ([`5459fb3`](https://github.com/iwpnd/fastapi-key-auth/commit/5459fb3906b4a8d295736afbd010faa7a35e409f))
+
+* chore(deps-dev): update ([`7e642d1`](https://github.com/iwpnd/fastapi-key-auth/commit/7e642d11c28cb9e165444b8a3d00fadb7655b43c))
+
+* chore(deps): update ([`38072fc`](https://github.com/iwpnd/fastapi-key-auth/commit/38072fc2e3d92cf4ead3bdf1c927471e97ea61e0))
+
+* chore(deps-dev): bump ruff from 0.1.13 to 0.1.14
+
+Bumps [ruff](https://github.com/astral-sh/ruff) from 0.1.13 to 0.1.14.
+- [Release notes](https://github.com/astral-sh/ruff/releases)
+- [Changelog](https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/ruff/compare/v0.1.13...v0.1.14)
+
+---
+updated-dependencies:
+- dependency-name: ruff
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`fe66bf8`](https://github.com/iwpnd/fastapi-key-auth/commit/fe66bf87d6467a86259ac07a97f464ce36cdefdd))
+
+* chore(deps-dev): bump ruff from 0.1.12 to 0.1.13
+
+Bumps [ruff](https://github.com/astral-sh/ruff) from 0.1.12 to 0.1.13.
+- [Release notes](https://github.com/astral-sh/ruff/releases)
+- [Changelog](https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/ruff/compare/v0.1.12...v0.1.13)
+
+---
+updated-dependencies:
+- dependency-name: ruff
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`0f02a92`](https://github.com/iwpnd/fastapi-key-auth/commit/0f02a928b7b9ed05d44f81a50544eccbe16b7464))
+
+* chore(deps-dev): bump ruff from 0.1.11 to 0.1.12
+
+Bumps [ruff](https://github.com/astral-sh/ruff) from 0.1.11 to 0.1.12.
+- [Release notes](https://github.com/astral-sh/ruff/releases)
+- [Changelog](https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/ruff/compare/v0.1.11...v0.1.12)
+
+---
+updated-dependencies:
+- dependency-name: ruff
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`76a610d`](https://github.com/iwpnd/fastapi-key-auth/commit/76a610dd1b6c9ade34a33829c2166cf8d7d16531))
+
+* chore(deps-dev): bump ruff from 0.1.9 to 0.1.11
+
+Bumps [ruff](https://github.com/astral-sh/ruff) from 0.1.9 to 0.1.11.
+- [Release notes](https://github.com/astral-sh/ruff/releases)
+- [Changelog](https://github.com/astral-sh/ruff/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/ruff/compare/v0.1.9...v0.1.11)
+
+---
+updated-dependencies:
+- dependency-name: ruff
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`6a26d16`](https://github.com/iwpnd/fastapi-key-auth/commit/6a26d161b385a420b92e8b74a1cf83633bd02f85))
+
+* chore(deps-dev): bump httpx from 0.25.2 to 0.26.0
+
+Bumps [httpx](https://github.com/encode/httpx) from 0.25.2 to 0.26.0.
+- [Release notes](https://github.com/encode/httpx/releases)
+- [Changelog](https://github.com/encode/httpx/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/encode/httpx/compare/0.25.2...0.26.0)
+
+---
+updated-dependencies:
+- dependency-name: httpx
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f8ae818`](https://github.com/iwpnd/fastapi-key-auth/commit/f8ae818cac0601a2f973428e12e0d71e69268b25))
+
+### Ci
+
+* ci: update python-semantic-release ([`37cecf9`](https://github.com/iwpnd/fastapi-key-auth/commit/37cecf9b9ea1c89f2823c759ce4c2d8674b48f55))
+
+* ci: update actions ([`077a8f4`](https://github.com/iwpnd/fastapi-key-auth/commit/077a8f41f7b929a6240441431027b7514bc427a6))
+
+* ci: only run release on push to main ([`27831b1`](https://github.com/iwpnd/fastapi-key-auth/commit/27831b14f52d9d1e1429e9e61d2dfdd073be52ca))
+
+### Performance
+
+* perf: update fastapi dependency ([`2edd58c`](https://github.com/iwpnd/fastapi-key-auth/commit/2edd58cce1c0c0f08a3e840fd59a9f9f17d12c63))
+
+
 ## v0.15.1 (2024-01-09)
 
 ### Fix
