@@ -17,8 +17,8 @@ starlette = ">=0.25.0"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.0.0"
-pre-commit = "^3.6.1"
+pytest = "^8.0.1"
+pre-commit = "^3.6.2"
 black = "^24.2.0"
 gitlint = "^0.19.0"
 poethepoet = ">=0.18.1,<0.25.0"
@@ -27,7 +27,7 @@ pytest-cov = "^4.0.0"
 requests = "^2.28.2"
 mypy = "^1.1.1"
 httpx = ">=0.23.3,<0.27.0"
-ruff = "^0.2.1"
+ruff = "^0.2.2"
 python-semantic-release = "^9.1.0"
 pytest-asyncio = "^0.23.5"
 
