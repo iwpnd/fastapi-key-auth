@@ -100,6 +100,14 @@ allowed_tags = [
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf"]
 
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+  "chore\\(release\\):",
+  "chore\\(deps-dev\\):",
+  "build\\(deps-dev\\):",
+  "ci:",
+]
+
 [tool.poe.tasks]
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
