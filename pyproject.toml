@@ -12,7 +12,7 @@ keywords = ["fastapi", "api key", "security"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.109.2"
+fastapi = ">=0.109.2,<0.111.0"
 starlette = ">=0.25.0"
 
 
