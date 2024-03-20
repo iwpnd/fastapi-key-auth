@@ -14,10 +14,6 @@ repos:
       hooks:
           - id: isort
             name: isort (python)
-    - repo: https://github.com/psf/black
-      rev: 24.2.0
-      hooks:
-          - id: black
     - repo: https://github.com/jorisroovers/gitlint
       rev: v0.19.1 # Fill in a tag / sha here
       hooks:
@@ -25,5 +21,6 @@ repos:
     - repo: https://github.com/charliermarsh/ruff-pre-commit
       rev: v0.2.2
       hooks:
-          - id: ruff
-            args: ["--ignore", "E501", "--per-file-ignores", "__init__.py:F401"]
+         - id: ruff
+           args: ["--ignore", "E501", "--per-file-ignores", "__init__.py:F401"]
+         - id: ruff-format
