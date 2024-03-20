@@ -14,6 +14,7 @@ keywords = ["fastapi", "api key", "security"]
 python = "^3.9"
 fastapi = "^0.110.0"
 starlette = ">=0.25.0"
+pydantic = "^2.6.4"
 
 
 [tool.poetry.group.dev.dependencies]
