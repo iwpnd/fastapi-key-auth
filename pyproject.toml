@@ -111,7 +111,7 @@ exclude_commit_patterns = [
 test       = "poetry run pytest -vv -s tests/"
 test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
 mypy       = "poetry run mypy --ignore-missing-imports --config-file pyproject.toml"
-lint       = "ruff ."
+lint       = "ruff check ."
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
