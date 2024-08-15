@@ -1,6 +1,50 @@
 # CHANGELOG
 
+## v0.15.4 (2024-08-15)
 
+### Chore
+
+* chore: bump fastapi ([`25f7b07`](https://github.com/iwpnd/fastapi-key-auth/commit/25f7b07ca0a6055847b1df639c3123c4e1ccb50b))
+
+* chore: precommit autoupdate ([`fbc0578`](https://github.com/iwpnd/fastapi-key-auth/commit/fbc0578525b60a72716f92b277c9ed14fdd3ccc6))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.0 to 9.8.3.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.0...v9.8.3)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`fff8014`](https://github.com/iwpnd/fastapi-key-auth/commit/fff8014df635fa02a1ef5be3c523ad3e9fef7254))
+
+* chore: fix ruff lint command ([`daa0ef5`](https://github.com/iwpnd/fastapi-key-auth/commit/daa0ef53b162656c9ecb9ab9aa434ee98526be8a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.6.0 to 9.8.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.6.0...v9.8.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2c58f13`](https://github.com/iwpnd/fastapi-key-auth/commit/2c58f132106dea668034e623209818152cb7677b))
+
+### Performance
+
+* perf: bump pydantic ([`bbbbad6`](https://github.com/iwpnd/fastapi-key-auth/commit/bbbbad6e5987463a4712c972f63152bb6b84ad6c))
 
 ## v0.15.3 (2024-05-05)
 
@@ -26,7 +70,6 @@
 
 * chore-deps: update fastapi ([`12e5211`](https://github.com/iwpnd/fastapi-key-auth/commit/12e5211ec5cec09eafd8b7e7a121f23bbe10c688))
 
-
 ## v0.15.2 (2024-02-06)
 
 ### Chore
@@ -39,13 +82,11 @@
 
 * perf: update fastapi dependency ([`2edd58c`](https://github.com/iwpnd/fastapi-key-auth/commit/2edd58cce1c0c0f08a3e840fd59a9f9f17d12c63))
 
-
 ## v0.15.1 (2024-01-09)
 
 ### Fix
 
 * fix: python-semantic-release versioning ([`ec1756b`](https://github.com/iwpnd/fastapi-key-auth/commit/ec1756b2db930ce46ac1bdc96df21f337c68e0f4))
-
 
 ## v0.15.0 (2024-01-09)
 
@@ -54,7 +95,6 @@
 * feat: export helper utils
 
 and trigger python-semantic-release to pypi O_O ([`466b963`](https://github.com/iwpnd/fastapi-key-auth/commit/466b9632618542245120f8bb4ad1669fb2b2674a))
-
 
 ## v0.14.1 (2024-01-09)
 
@@ -106,7 +146,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1c016a8`](https://g
 ### Performance
 
 * perf: speed up api key look up, reuse helper functions ([`745b2e7`](https://github.com/iwpnd/fastapi-key-auth/commit/745b2e7580175549e1e4cad98c1979fcbc6d869b))
-
 
 ## v0.14.0 (2023-12-23)
 
@@ -306,7 +345,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7228763`](https://g
 
 * feat: drop 3.8 support ([`a4596bb`](https://github.com/iwpnd/fastapi-key-auth/commit/a4596bb062f008e766b1558d0051613dc6492655))
 
-
 ## v0.12.0 (2023-06-13)
 
 ### Chore
@@ -331,7 +369,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c09d826`](https://g
 ### Fix
 
 * fix: empty api_key passing authentication ([`c30376e`](https://github.com/iwpnd/fastapi-key-auth/commit/c30376e68c605431c7d11e64dcacf6792baface8))
-
 
 ## v0.11.0 (2023-04-11)
 
@@ -359,16 +396,13 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`f276fd2`](https://g
 
 * feat: drop support for python 3.7 ([`2dc24ea`](https://github.com/iwpnd/fastapi-key-auth/commit/2dc24ea7742ad48a66d9e776b0958345cfff8cc1))
 
-
 ## v0.10.2 (2023-03-31)
 
 ### Fix
 
 * fix: dependencies ([`14582ca`](https://github.com/iwpnd/fastapi-key-auth/commit/14582ca6c3e3369d415d4f78547af1f195e3fd30))
 
-
 ## v0.10.1 (2023-03-08)
-
 
 ## v0.10.0 (2023-03-08)
 
@@ -389,7 +423,6 @@ updated-dependencies:
 ...
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`120a3bc`](https://github.com/iwpnd/fastapi-key-auth/commit/120a3bc6d1125320565ccc9cd45a403871611928))
-
 
 ## v0.9.0 (2023-02-15)
 
@@ -461,7 +494,6 @@ Upgrade poetry configuration for dev dependencies
 
 Add missing dependency and fix tests ([`2096083`](https://github.com/iwpnd/fastapi-key-auth/commit/20960834b20346c46c028c2e248c75974a30b101))
 
-
 ## v0.8.0 (2022-10-31)
 
 ### Chore
@@ -475,7 +507,6 @@ Add missing dependency and fix tests ([`2096083`](https://github.com/iwpnd/fasta
 ### Refactor
 
 * refactor: check key_pattern once ([`d9877c5`](https://github.com/iwpnd/fastapi-key-auth/commit/d9877c59a3a4e9876cad7d05f79c40bb8c6cd9ba))
-
 
 ## v0.7.6 (2022-10-01)
 
@@ -685,13 +716,11 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`924461e`](https://github.com/iwpnd/fastapi-key-auth/commit/924461e9001cb719385edd6e777b9aa98405c8cd))
 
-
 ## v0.7.5 (2022-05-16)
 
 ### Chore
 
 * chore: bump fastapi dependency ([`9a20d77`](https://github.com/iwpnd/fastapi-key-auth/commit/9a20d77f2ba20f1127319002e5706af75df1c30d))
-
 
 ## v0.7.4 (2022-05-10)
 
@@ -731,13 +760,11 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`c6b1b88`](https://github.com/iwpnd/fastapi-key-auth/commit/c6b1b8882433eaec8d30bef3fefdbab053464167))
 
-
 ## v0.7.3 (2022-04-28)
 
 ### Fix
 
 * fix: fastapi dependency range ([`8c7d5df`](https://github.com/iwpnd/fastapi-key-auth/commit/8c7d5dfd97c86d34c9c6068b7b826b2fdabcbd3c))
-
 
 ## v0.7.2 (2022-04-28)
 
@@ -899,7 +926,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`469a5ac`](https://g
 
 * fix: fastapi dependency ([`40929de`](https://github.com/iwpnd/fastapi-key-auth/commit/40929de336049d51bf1e06e4003e95aaaaa7a11c))
 
-
 ## v0.7.1 (2022-01-11)
 
 ### Chore
@@ -956,7 +982,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`39a743e`](https://g
 ### Documentation
 
 * docs: update changelog ([`99ffa7b`](https://github.com/iwpnd/fastapi-key-auth/commit/99ffa7b9ccf8c4468a852b46f0991abcee0f4b6e))
-
 
 ## v0.7.0 (2021-10-08)
 
@@ -1041,7 +1066,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a7c0e09`](https://g
 
 * feat(zone-bc-services): remove version constrains on starlette and fastapi ([`28a4f29`](https://github.com/iwpnd/fastapi-key-auth/commit/28a4f292a596bce8fc451ff4adeb56364a1f0a9e))
 
-
 ## v0.6.0 (2021-04-25)
 
 ### Chore
@@ -1066,7 +1090,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a7c0e09`](https://g
 
 * feat: add custom key pattern and json response instead of plaintext ([`63c5a27`](https://github.com/iwpnd/fastapi-key-auth/commit/63c5a276bbf6724005dc13b9ce4e4d2a32bca99a))
 
-
 ## v0.5.0 (2021-04-23)
 
 ### Chore
@@ -1077,13 +1100,11 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a7c0e09`](https://g
 
 * feat: allow regex ^ matches in public_paths ([`e5a7dc0`](https://github.com/iwpnd/fastapi-key-auth/commit/e5a7dc0295ebe57fccadccbb362c20554fb598b4))
 
-
 ## v0.4.1 (2021-04-23)
 
 ### Fix
 
 * fix: public_path validation ([`2cb8e49`](https://github.com/iwpnd/fastapi-key-auth/commit/2cb8e49f61b3f0b1f56dadd311ae879158d05a6b))
-
 
 ## v0.4.0 (2021-04-23)
 
@@ -1098,7 +1119,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a7c0e09`](https://g
 ### Feature
 
 * feat: add param to allow public_path without api_key ([`1ec619a`](https://github.com/iwpnd/fastapi-key-auth/commit/1ec619a63faee51257651e59ce47717ad2271f26))
-
 
 ## v0.3.0 (2021-04-21)
 
