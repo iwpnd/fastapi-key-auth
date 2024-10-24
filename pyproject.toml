@@ -26,7 +26,7 @@ requests = "^2.32.3"
 mypy = "^1.11.2"
 ruff = "^0.7.0"
 python-semantic-release = "^9.12.0"
-httpx = "^0.27.0"
+httpx = "^0.27.2"
 
 [mypy]
 python_version = 3.9
