@@ -218,7 +218,7 @@ description = "Cross-platform colored terminal text."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 groups = ["dev"]
-markers = "sys_platform == \"win32\" or platform_system == \"Windows\""
+markers = "platform_system == \"Windows\" or sys_platform == \"win32\""
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -864,14 +864,14 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "poethepoet"
-version = "0.32.2"
+version = "0.33.0"
 description = "A task runner that works well with poetry."
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "poethepoet-0.32.2-py3-none-any.whl", hash = "sha256:97e165de8e00b07d33fd8d72896fad8b20ccafcd327b1118bb6a3da26af38d33"},
-    {file = "poethepoet-0.32.2.tar.gz", hash = "sha256:1d68871dac1b191e27bd68fea57d0e01e9afbba3fcd01dbe6f6bc3fcb071fe4c"},
+    {file = "poethepoet-0.33.0-py3-none-any.whl", hash = "sha256:46a32ea9834666a13e0a7bbfa2562037c8d9a46df5cf032b9de1fbb3de372c6e"},
+    {file = "poethepoet-0.33.0.tar.gz", hash = "sha256:dccf2bc1fb67ae9051b4aea7515687a34628338e013e723f60e59e41d3630c07"},
 ]
 
 [package.dependencies]
@@ -1621,4 +1621,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "b27257226ad8981372c9e43842ff0590824d9c1cb1e0b6aa8842e4682e0b2952"
+content-hash = "36ed2574304f54d948640862939b1600a3d37797bb974203ff6e45d8fb56dcb7"
