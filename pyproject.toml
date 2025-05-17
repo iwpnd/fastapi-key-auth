@@ -125,10 +125,10 @@ source = ["src"]
 
 [tool.semantic_release]
 version_variables = [
-    "src/fastapi-key-auth/__init__.py:__version__",
+    "src/fastapi_key_auth/__init__.py:__version__",
     "pyproject.toml:version",
 ]
-commit_subject = "ci: release v{version}"
+commit_message = "ci: release v{version}"
 branch = "main"
 upload_to_release = true
 build_command = "pip install uv && uv build"
