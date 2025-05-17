@@ -1,0 +1,91 @@
+name: Main
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out
+      uses: actions/checkout@v4
+
+    - uses: actions/cache@v4
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+
+    - name: Set up the environment
+      uses: ./.github/actions/setup-python-env
+
+    - name: Run checks
+      run: make check
+
+  tests-and-type-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+      fail-fast: false
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Check out
+      uses: actions/checkout@v4
+
+    - name: Set up the environment
+      uses: ./.github/actions/setup-python-env
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Run tests
+      run: uv run python -m pytest tests --cov --cov-config=pyproject.toml --cov-report=xml
+
+    - name: Check typing
+      run: uv run mypy
+
+  release:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/folium-vectortilelayer
+    permissions:
+      id-token: write
+      contents: write
+    needs: [quality, tests-and-type-check]
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - uses: actions/cache@v4
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+
+    - name: Set up the environment
+      uses: ./.github/actions/setup-python-env
+
+    - name: Python Semantic Release
+      id: release
+      uses: python-semantic-release/python-semantic-release@v9.21.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      # NOTE: DO NOT wrap the conditional in ${{ }} as it will always evaluate to true.
+      # See https://github.com/actions/runner/issues/1173
+      if: steps.release.outputs.released == 'true'
+
+    - name: Publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@main
+      if: steps.release.outputs.released == 'true'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
