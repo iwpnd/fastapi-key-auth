@@ -103,6 +103,10 @@ ignore = [
     "E501",
     # DoNotAssignLambda
     "E731",
+    # long messages outside exception class
+    "TRY003",
+    # mutable data structures on init
+    "B006",
 ]
 
 [tool.ruff.lint.per-file-ignores]

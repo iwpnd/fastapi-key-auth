@@ -29,20 +29,19 @@ class AuthorizerMiddleware(Authenticator):
         self,
         app: ASGIApp,
         key_pattern: str = get_default_api_key_pattern(),
-        public_paths: typing.List[str] = [],
-        on_error: typing.Optional[
-            typing.Callable[[HTTPConnection, AuthenticationError], Response]
-        ] = None,
+        public_paths: list[str] = [],
+        on_error: typing.Callable[[HTTPConnection, AuthenticationError], Response]
+        | None = None,
     ) -> None:
         self.app = app
         self.on_error: typing.Callable[
             [HTTPConnection, AuthenticationError], Response
-        ] = (on_error if on_error is not None else self.default_on_error)
+        ] = on_error if on_error is not None else self.default_on_error
         self.key_pattern = key_pattern
-        self.public_paths: typing.List[str] = [
+        self.public_paths: list[str] = [
             path for path in public_paths if path.startswith("/")
         ]
-        self.public_paths_regex: typing.List[str] = [
+        self.public_paths_regex: list[str] = [
             path for path in public_paths if path.startswith("^")
         ]
 
