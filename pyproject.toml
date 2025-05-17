@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-key-auth"
-version = "0.15.4"
+version = "0.15.5"
 description = "API key validation Middleware"
 license = "MIT"
 readme = "readme.md"
