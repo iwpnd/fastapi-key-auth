@@ -57,15 +57,15 @@ Use this either as a middleware, or as Dependency.
 1. Clone and install
     ```sh
     git clone https://github.com/iwpnd/fastapi-key-auth.git
-    poetry install
+    uv sync
     ```
 2. Install with pip
     ```sh
     pip install fastapi-key-auth
     ```
-3. Install with poetry
+3. Install with uv
     ```sh
-    poetry add fastapi-key-auth
+    uv add fastapi-key-auth
     ```
 
 ## Usage
@@ -104,5 +104,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Benjamin Ramser - [@imwithpanda](https://twitter.com/imwithpanda) - ahoi@iwpnd.pw  
+Benjamin Ramser - [@imwithpanda](https://twitter.com/imwithpanda) - ahoi@iwpnd.pw
 Project Link: [https://github.com/iwpnd/fastapi-key-auth](https://github.com/iwpnd/fastapi-key-auth)
