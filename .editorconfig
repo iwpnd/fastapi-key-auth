@@ -21,4 +21,3 @@ trim_trailing_whitespace = false
 
 [LICENSE]
 insert_final_newline = false
-
